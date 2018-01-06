@@ -1,0 +1,4 @@
+client:
+  default-uri: http://localhost:9090/sai/ws/saiservice
+server:
+  port: 9090

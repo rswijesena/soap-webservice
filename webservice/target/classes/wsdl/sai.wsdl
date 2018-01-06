@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<wsdl:definitions name="SAI"
+                  targetNamespace="http://sai.com/services/SAI"
+                  xmlns:tns="http://sai.com/services/SAI"
+                  xmlns:types="http://sai.com/ws/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+
+
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://sai.com/ws/"
+                    xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+                    xmlns:s="http://sai.com/ws/"
+                    attributeFormDefault="unqualified" version="1.0">
+            <xsd:element name="getStandardsResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="standards" maxOccurs="unbounded" type="s:standard"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="getStandards">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="standardsList" type="xsd:string" maxOccurs="unbounded"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+
+            <xsd:complexType name="standard">
+                <xsd:sequence>
+                    <xsd:element name="standardName">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="40"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+
+                    <xsd:element name="publisher">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                                <xsd:maxLength value="40"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+
+                    <xsd:element name="relationship" maxOccurs="unbounded" minOccurs="0">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="relationshipType">
+                                    <xsd:simpleType>
+                                        <xsd:restriction base="xsd:string">
+                                            <xsd:maxLength value="40"/>
+                                        </xsd:restriction>
+                                    </xsd:simpleType>
+                                </xsd:element>
+                                <xsd:element name="relationshipName" maxOccurs="unbounded" minOccurs="0">
+                                    <xsd:simpleType>
+                                        <xsd:restriction base="xsd:string">
+                                            <xsd:maxLength value="40"/>
+                                        </xsd:restriction>
+                                    </xsd:simpleType>
+                                </xsd:element>
+                                <xsd:element name="statusDate" type="xsd:date"/>
+                                <xsd:element name="statusCode" type="xsd:string"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:sequence>
+                <xsd:attribute name="standardCode" use="required">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:integer">
+                            <xsd:totalDigits value="10"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:attribute>
+            </xsd:complexType>
+
+        </xsd:schema>
+
+    </wsdl:types>
+
+    <wsdl:message name="getStandardsInput">
+        <wsdl:part name="getStandards" element="types:getStandards"/>
+    </wsdl:message>
+
+    <wsdl:message name="getStandardsOutput">
+        <wsdl:part name="getStandardsResponse" element="types:getStandardsResponse"/>
+    </wsdl:message>
+
+    <wsdl:portType name="SAI_PortType">
+        <wsdl:operation name="getStandards">
+            <wsdl:input message="tns:getStandardsInput"/>
+            <wsdl:output message="tns:getStandardsOutput"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="SAI_SoapBinding" type="tns:SAI_PortType">
+        <soap:binding style="document"
+                      transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="getStandards">
+            <soap:operation
+                    soapAction="http://sai.com/services/sai/getStandards"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:service name="SAI_Service">
+        <wsdl:documentation>This web service return standards.</wsdl:documentation>
+        <wsdl:port name="SAI_Port" binding="tns:SAI_SoapBinding">
+            <soap:address location="http://localhost:9090/sai/ws/saiservice"/>
+        </wsdl:port>
+    </wsdl:service>
+
+
+</wsdl:definitions>

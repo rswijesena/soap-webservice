@@ -1,0 +1,11 @@
+com/sai/ws/Standard.class
+com/sai/ws/GetStandards.class
+com/sai/ws/endpoint/SAIEndpoint.class
+com/sai/ws/client/SAIClient.class
+com/sai/ws/GetStandardsResponse.class
+com/sai/ws/Standard$Relationship.class
+com/sai/ws/endpoint/WebServiceConfig.class
+com/sai/ws/package-info.class
+com/sai/ws/ObjectFactory.class
+com/sai/ws/SpringWsApplication.class
+com/sai/ws/client/ClientConfig.class
