@@ -1,6 +1,6 @@
 # soap-webservice
 
-This webservice return a list of standards by standadrd code.
+This web service return a list of standards by standard code.
 
 ![alt text](https://github.com/rswijesena/soap-webservice/blob/master/webservice/src/main/resources/sample.png)
 
@@ -10,6 +10,8 @@ Setup.
 
 mvn generate-sources
 
+Generated source of model classes will be available here. https://github.com/rswijesena/soap-webservice/tree/master/webservice/target/generated-sources/xjc/com/sai/ws
+
 2. Run test suite.
 
 mvn test
@@ -18,4 +20,5 @@ mvn test
 
 mvn spring-boot:run
 
-Once sucessfully startup, you can access the wsdl file, http://localhost:9090/sai/ws/saiservice.wsdl
+Once successfully startup, you can access the wsdl file, http://localhost:9090/sai/ws/saiservice.wsdl
+
