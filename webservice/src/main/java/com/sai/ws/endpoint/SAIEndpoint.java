@@ -35,7 +35,7 @@ public class SAIEndpoint {
     public GetStandardsResponse getStandards(@RequestPayload GetStandards getStandards) throws DatatypeConfigurationException {
         ObjectFactory factory = new ObjectFactory();
         GetStandardsResponse response = factory.createGetStandardsResponse();
-        LOGGER.debug("getStandards request for " + getStandards.getStandardsList());
+        LOGGER.debug("getStandards request for " + getStandards.getStandardCode());
 
         //Mock standards.
         //Record one
@@ -85,7 +85,7 @@ public class SAIEndpoint {
         GetStandardsResponse responseAfterSearch = factory.createGetStandardsResponse();
 
         //Iterate through input codes and search standard code from the mock data and return requested data.
-        for(String list : getStandards.getStandardsList()){
+        for(String list : getStandards.getStandardCode()){
 
             List<Standard> newList = response.getStandards();
             Iterator<Standard> iter = newList.iterator();

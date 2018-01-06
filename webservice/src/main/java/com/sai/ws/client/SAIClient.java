@@ -34,7 +34,7 @@ public class SAIClient {
 
         ObjectFactory factory = new ObjectFactory();
         GetStandards getStandards = factory.createGetStandards();
-        getStandards.getStandardsList().add(code);
+        getStandards.getStandardCode().add(code);
 
         GetStandardsResponse getStandardsResponse = (GetStandardsResponse) webServiceTemplate.marshalSendAndReceive(getStandards);
 
