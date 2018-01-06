@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <name>spring-ws-SAI</name>
-    <description>Spring WS - SOAP Web Service Consumer Provider WSDL Example</description>
+    <description>This webservice return standard by standard code.</description>
     <url>https://www.saiglobal.com</url>
 
     <parent>
