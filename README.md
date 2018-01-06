@@ -22,3 +22,7 @@ mvn spring-boot:run
 
 Once successfully startup, you can access the wsdl file, http://localhost:9090/sai/ws/saiservice.wsdl
 
+Sample client application can be found here, https://github.com/rswijesena/soap-webservice/tree/master/webservice/src/main/java/com/sai/ws/client
+
+
+
