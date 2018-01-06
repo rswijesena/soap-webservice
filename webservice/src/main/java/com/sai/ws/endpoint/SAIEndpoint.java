@@ -88,13 +88,13 @@ public class SAIEndpoint {
         for(String list : getStandards.getStandardCode()){
 
             List<Standard> newList = response.getStandards();
-            Iterator<Standard> iter = newList.iterator();
-            while (iter.hasNext()) {
-                Standard c = iter.next();
-                int result = list.compareTo(String.valueOf(c.getStandardCode()));
+            Iterator<Standard> iteratedStandard = newList.iterator();
+            while (iteratedStandard.hasNext()) {
+                Standard standardFromList = iteratedStandard.next();
+                int result = list.compareTo(String.valueOf(standardFromList.getStandardCode()));
 
                 if (result == 0) {
-                    responseAfterSearch.getStandards().add(c);
+                    responseAfterSearch.getStandards().add(standardFromList);
                 }
             }
 
