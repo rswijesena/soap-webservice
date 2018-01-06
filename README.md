@@ -18,4 +18,4 @@ mvn test
 
 mvn spring-boot:run
 
-Once sucessfully startup, you can access the wsdl file, http://localhost:9090/codenotfound/ws/
+Once sucessfully startup, you can access the wsdl file, http://localhost:9090/sai/ws/saiservice.wsdl
